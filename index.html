@@ -1,0 +1,560 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Khushi - Machine Learning Engineer & Python Developer Portfolio. Specializing in end-to-end ML pipelines, predictive analytics, and backend API integration.">
+  <meta name="keywords" content="Machine Learning Engineer, ML, Python, AI, Developer Portfolio, FastAPI, Data Science, Khushi">
+  <meta name="author" content="Khushi">
+  <title>Khushi | Machine Learning Engineer & Python Developer</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="background-container">
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="assets/videos/blackhole.webm" type="video/webm">
+    </video>
+    <canvas id="stars"></canvas>
+    <div class="overlay"></div>
+  
+  </div>
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="logo">
+        <span>K</span>hushi<span class="dot">.</span>
+      </a>
+      
+      <!-- Hamburger Menu for Mobile -->
+      <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false" id="mobile-toggle" aria-label="Toggle menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <!-- Desktop Navigation Menu -->
+      <nav id="primary-navigation" class="nav-menu">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero fade-in-section">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <p class="hero-subtitle">Hi, I'm Khushi</p>
+          <h1 class="hero-title">
+            Machine Learning Engineer <br>
+            <span class="gradient-text">Python Developer</span>
+          </h1>
+          <p class="hero-description">
+            Building robust end-to-end machine learning systems and intelligent backend APIs. Focused on scalable predictive models and efficient data pipelines.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+        <div class="hero-image-container">
+            <div class="hero-profile-box">
+              <div id="robot-glow-shadow"></div>
+              <div id="robot-wrapper">
+                <img src="assets/pic/robot.png" class="profile-img" alt="Khushi">
+              </div>
+            </div>
+        </div>
+      </div>
+    </section>
+    <!-- About Section -->
+    <section id="about" class="about fade-in-section">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-grid">
+          <div class="about-card glow-border-card">
+            <i class="fas fa-quote-left about-quote-icon"></i>
+            <div class="about-text">
+              <p>I am pursuing a B.Tech in Computer Science and Engineering, specializing in Artificial Intelligence and Machine Learning (AI & ML). I build end-to-end machine learning pipelines from data cleaning to deployment. I am currently seeking an ML internship to apply my technical skills to real-world challenges.</p>
+            </div>
+            <div class="about-stats">
+              <div class="about-stat">
+                <span class="about-stat-number">3</span>
+                <span class="about-stat-label">End-to-End Projects</span>
+              </div>
+              <div class="about-stat">
+                <span class="about-stat-number">0.90</span>
+                <span class="about-stat-label">R&sup2; Sales Model</span>
+              </div>
+              <div class="about-stat">
+                <span class="about-stat-number">81%</span>
+                <span class="about-stat-label">Churn Accuracy</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-highlights stagger-children">
+            <div class="about-highlight-item">
+              <div class="about-highlight-icon"><i class="fas fa-graduation-cap"></i></div>
+              <div>
+                <h4>B.Tech AI &amp; ML</h4>
+                <p>JSS Academy of Technical Education</p>
+              </div>
+            </div>
+            <div class="about-highlight-item">
+              <div class="about-highlight-icon"><i class="fas fa-diagram-project"></i></div>
+              <div>
+                <h4>3 End-to-End Projects</h4>
+                <p>From raw data to deployed APIs</p>
+              </div>
+            </div>
+            <div class="about-highlight-item">
+              <div class="about-highlight-icon"><i class="fas fa-bullseye"></i></div>
+              <div>
+                <h4>Actively Seeking</h4>
+                <p>ML Internship opportunities</p>
+              </div>
+            </div>
+            <div class="about-highlight-item">
+              <div class="about-highlight-icon"><i class="fas fa-code"></i></div>
+              <div>
+                <h4>Python-First Builder</h4>
+                <p>APIs, pipelines &amp; dashboards</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills fade-in-section">
+      <div class="container">
+        <h2 class="section-title">Skills &amp; Expertise</h2>
+        <p class="section-subtitle">Technologies and tools I use to build end-to-end ML systems.</p>
+        <div class="expertise-grid stagger-children">
+          <div class="expertise-card"><div class="expertise-logo-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" loading="lazy"></div><span>Python</span></div>
+          <div class="expertise-card"><div class="expertise-logo-chip"><img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JavaScript" loading="lazy"></div><span>JavaScript</span></div>
+          <div class="expertise-card"><div class="expertise-logo-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kaggle/kaggle-original.svg" alt="Machine Learning" loading="lazy"></div><span>Machine Learning</span></div>
+          <div class="expertise-card"><div class="expertise-logo-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="Deep Learning" loading="lazy"></div><samp>Deep Learning</span></div>          
+          <div class="expertise-card"><div class="expertise-logo-chip"><img src="https://cdn.simpleicons.org/scikitlearn/F7931E" alt="Scikit-learn" loading="lazy"></div><span>Scikit-learn</span></div>
+          <div class="expertise-card"><div class="expertise-logo-chip"><img src="https://cdn.simpleicons.org/pandas/150458" alt="Pandas" loading="lazy"></div><span>Pandas</span></div>
+          <div class="expertise-card"><div class="expertise-logo-chip"><img src="https://cdn.simpleicons.org/numpy/013243" alt="NumPy" loading="lazy"></div><span>NumPy</span></div>          
+          <div class="expertise-card"><div class="expertise-logo-chip"><img src="https://cdn.simpleicons.org/fastapi/009688" alt="FastAPI" loading="lazy"></div><span>FastAPI</span></div>          
+          <div class="expertise-card"><div class="expertise-logo-chip"><img src="https://cdn.simpleicons.org/streamlit/FF4B4B" alt="Streamlit" loading="lazy"></div><span>Streamlit</span></div>
+          <div class="expertise-card"><div class="expertise-logo-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" loading="lazy"></div><span>PostgreSQL</span></div>
+          <div class="expertise-card"><div class="expertise-logo-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" loading="lazy"></div><span>MySQL</span></div>
+          <div class="expertise-card"><div class="expertise-logo-chip"><img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker" loading="lazy"></div><span>Docker</span></div>
+          <div class="expertise-card"><div class="expertise-logo-chip"><img src="https://cdn.simpleicons.org/git/F05032" alt="Git" loading="lazy"></div><span>Git</span></div>
+          <div class="expertise-card"><div class="expertise-logo-chip"><img src="https://cdn.simpleicons.org/github/181717" alt="GitHub" loading="lazy"></div><span>GitHub</span></div>          
+          <div class="expertise-card"><div class="expertise-logo-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" loading="lazy"></div><span>VS Code</span></div>
+          <div class="expertise-card"><div class="expertise-logo-chip"><img src="https://cdn.simpleicons.org/jupyter/F37626" alt="Jupyter Notebook" loading="lazy"></div><span>Jupyter Notebook</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills in Action Section -->
+    <section id="skills-action" class="skills-action fade-in-section">
+      <div class="container">
+        <h2 class="section-title">Skills in Action</h2>
+        <p class="section-subtitle">Not just tools I know — here's how I've actually applied them.</p>
+        <div class="timeline-alt stagger-children">
+
+          <!-- Card 1: Machine Learning -->
+          <div class="timeline-alt-item" style="--accent:#8b5cf6;">
+            <div class="timeline-alt-card">
+              <div class="action-card-glow"></div>
+              <div class="action-card-content">
+                <div class="action-icon-wrapper">
+                  <i class="fas fa-brain"></i>
+                </div>
+                <div class="action-card-body">
+                  <h3>Machine Learning</h3>
+                  <p>Applied algorithms like RandomForestRegressor to forecast sales with high R² scores, and developed classification pipelines to predict customer churn probability.</p>
+                  <div class="action-badges">
+                    <span class="badge">Python</span>
+                    <span class="badge">Scikit-learn</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-alt-marker"><i class="fas fa-brain"></i></div>
+            <div class="timeline-alt-stage">Stage 01</div>
+          </div>
+
+          <!-- Card 2: Data Analysis -->
+          <div class="timeline-alt-item" style="--accent:#2dd4bf;">
+            <div class="timeline-alt-card">
+              <div class="action-card-glow"></div>
+              <div class="action-card-content">
+                <div class="action-icon-wrapper">
+                  <i class="fas fa-chart-bar"></i>
+                </div>
+                <div class="action-card-body">
+                  <h3>Data Analysis</h3>
+                  <p>Cleaned, processed, and analyzed transactional datasets and personal financial records to generate structured visualizations and statistical metrics.</p>
+                  <div class="action-badges">
+                    <span class="badge">Python</span>
+                    <span class="badge">Pandas</span>
+                    <span class="badge">NumPy</span>
+                    <span class="badge">Matplotlib</span>
+                    <span class="badge">Seaborn</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-alt-marker"><i class="fas fa-chart-bar"></i></div>
+            <div class="timeline-alt-stage">Stage 02</div>
+          </div>
+
+          <!-- Card 3: Backend Development -->
+          <div class="timeline-alt-item" style="--accent:#3b82f6;">
+            <div class="timeline-alt-card">
+              <div class="action-card-glow"></div>
+              <div class="action-card-content">
+                <div class="action-icon-wrapper">
+                  <i class="fas fa-server"></i>
+                </div>
+                <div class="action-card-body">
+                  <h3>Backend Development</h3>
+                  <p>Built prediction-serving backend architectures, designed REST endpoints to serve models, and developed interactive dashboards for real-time model interaction.</p>
+                  <div class="action-badges">
+                    <span class="badge">Python</span>
+                    <span class="badge">FastAPI</span>
+                    <span class="badge">Streamlit</span>
+                    <span class="badge">REST APIs</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-alt-marker"><i class="fas fa-server"></i></div>
+            <div class="timeline-alt-stage">Stage 03</div>
+          </div>
+
+          <!-- Card 4: Databases -->
+          <div class="timeline-alt-item" style="--accent:#f59e0b;">
+            <div class="timeline-alt-card">
+              <div class="action-card-glow"></div>
+              <div class="action-card-content">
+                <div class="action-icon-wrapper">
+                  <i class="fas fa-database"></i>
+                </div>
+                <div class="action-card-body">
+                  <h3>Databases</h3>
+                  <p>Designed structured schemas, executed efficient SQL queries, and integrated transactional databases with retail forecasting applications.</p>
+                  <div class="action-badges">
+                    <span class="badge">SQL</span>
+                    <span class="badge">PostgreSQL</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-alt-marker"><i class="fas fa-database"></i></div>
+            <div class="timeline-alt-stage">Stage 04</div>
+          </div>
+
+          <!-- Card 5: DevOps & Tools -->
+          <div class="timeline-alt-item" style="--accent:#10b981;">
+            <div class="timeline-alt-card">
+              <div class="action-card-glow"></div>
+              <div class="action-card-content">
+                <div class="action-icon-wrapper">
+                  <i class="fas fa-tools"></i>
+                </div>
+                <div class="action-card-body">
+                  <h3>DevOps &amp; Tools</h3>
+                  <p>Containerized machine learning environments for consistent deployment, tracked experiments using version control, and collaborated using code repositories.</p>
+                  <div class="action-badges">
+                    <span class="badge">Git</span>
+                    <span class="badge">GitHub</span>
+                    <span class="badge">Docker</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-alt-marker"><i class="fas fa-tools"></i></div>
+            <div class="timeline-alt-stage">Stage 05</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- Projects Section -->
+    <section id="projects" class="projects fade-in-section">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+
+        <div class="projects-slider">
+          <div class="projects-grid stagger-children">
+          
+            <!-- Project 1 -->
+            <div class="project-card tilt-card">
+              <div class="project-card-banner banner-retailiq">
+                <i class="fas fa-chart-line"></i></div>
+              <div class="project-card-content">
+                <h3 class="project-title">RetailIQ</h3>
+                <p class="project-subtitle">Retail Sales Prediction System</p>
+                <span class="project-label">Overview</span>
+                <p class="project-desc">A retail sales forecasting system designed to predict store sales based on historical data. Implemented forecasting models with robust data ingestion.</p>
+                
+                <!-- Metrics Tag -->
+                <div class="project-metric">
+                  <i class="fas fa-chart-line"></i> RandomForestRegressor R² ≈ 0.90
+                </div>
+                
+                <span class="project-label">Tech Stack</span>
+                <div class="project-tech">
+                  <span>Python</span>
+                  <span>FastAPI</span>
+                  <span>PostgreSQL</span>
+                  <span>Docker</span>
+                </div>
+                
+                <div class="project-links">
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="GitHub Code for RetailIQ">
+                    <i class="fab fa-github"></i> Code
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="project-card tilt-card ">
+<div class="project-card-banner banner-churn"><i class="fas fa-user-check"></i></div>
+              
+              <div class="project-card-content">
+                <h3 class="project-title">Customer Churn Prediction System</h3>
+                <p class="project-subtitle">Churn Classifier & API</p>
+                <span class="project-label">Overview</span>
+                <p class="project-desc">An end-to-end classifier that predicts customer churn probabilities, complete with an interactive dashboard and API for prediction serving.</p>
+                
+                <!-- Metrics Tag -->
+                <div class="project-metric">
+                  <i class="fas fa-bullseye"></i> 81% Accuracy | 0.85 AUC-ROC
+                </div>
+                
+                <span class="project-label">Tech Stack</span>
+                <div class="project-tech">
+                  <span>Python</span>
+                  <span>Scikit-learn</span>
+                  <span>FastAPI</span>
+                  <span>Streamlit</span>
+                  <span>Render</span>
+                </div>
+                
+                <div class="project-links">
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="GitHub Code for Customer Churn Prediction System">
+                    <i class="fab fa-github"></i> Code
+                  </a>
+                  <a href="https://render.com" target="_blank" rel="noopener noreferrer" class="project-link demo-link" aria-label="Live Demo for Customer Churn Prediction System">
+                    <i class="fas fa-external-link-alt"></i> Live Demo
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- Project 3 -->
+            <div class="project-card tilt-card">
+<div class="project-card-banner banner-expense"><i class="fas fa-wallet"></i></div>
+              
+              <div class="project-card-content">
+                <h3 class="project-title">Personal Expense Analyzer</h3>
+                <p class="project-subtitle">Personal Finance Tracker</p>
+                <span class="project-label">Overview</span>
+                <p class="project-desc">A local Python application that processes financial statements, classifies expenditures, and generates structured analytical visualizations.</p>
+                
+                <!-- Metrics Tag -->
+                <div class="project-metric">
+                  <i class="fas fa-wallet"></i> Personal Finance Tracker
+                </div>
+                
+                <span class="project-label">Tech Stack</span>
+                <div class="project-tech">
+                  <span>Python</span>
+                  <span>Pandas</span>
+                  <span>Matplotlib</span>
+                </div>
+                
+                <div class="project-links">
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="GitHub Code for Personal Expense Analyzer">
+                    <i class="fab fa-github"></i> Code
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Education Section -->
+    <section id="education" class="education fade-in-section">
+      <div class="container">
+        <h2 class="section-title">Education</h2>
+        <div class="timeline-alt timeline-edu stagger-children">
+
+          <!-- Education Item 1 -->
+          <div class="timeline-alt-item" style="--accent:#8b5cf6;">
+            <div class="timeline-alt-card">
+              <div class="edu-card-top">
+                <span class="edu-date">Sep 2024 - Present</span>
+                <span class="edu-status status-progress">Undergrad</span>
+              </div>
+              <h3>B.Tech in Computer Science &amp; Engineering (AI &amp; ML)</h3>
+              <p class="timeline-institution">JSS Academy of Technical Education (AKTU)</p>
+              <p class="timeline-description">Specializing in intelligent systems, machine learning architectures, and computational modeling.</p>
+              <div class="edu-tags">
+                <span class="badge">AI &amp; ML</span>
+                <span class="badge">Data Structures</span>
+                <span class="badge">Python</span>
+              </div>
+            </div>
+            <div class="timeline-alt-marker"><i class="fas fa-graduation-cap"></i></div>
+          </div>
+
+          <!-- Education Item 2 -->
+          <div class="timeline-alt-item" style="--accent:#2dd4bf;">
+            <div class="timeline-alt-card">
+              <div class="edu-card-top">
+                <span class="edu-date">2021 - 2024</span>
+                <span class="edu-status status-done">Completed</span>
+              </div>
+              <h3>Diploma in Computer Science &amp; Engineering</h3>
+              <p class="timeline-institution">BTEUP Lucknow</p>
+              <p class="timeline-description">Acquired strong foundational knowledge in programming, algorithms, database systems, and networking.</p>
+              <div class="edu-tags">
+                <span class="badge">Programming</span>
+                <span class="badge">Algorithms</span>
+                <span class="badge">DBMS</span>
+              </div>
+            </div>
+            <div class="timeline-alt-marker"><i class="fas fa-school"></i></div>
+          </div>
+
+          <!-- Education Item 3 -->
+          <div class="timeline-alt-item" style="--accent:#f59e0b;">
+            <div class="timeline-alt-card">
+              <div class="edu-card-top">
+                <span class="edu-date">2020 - 2021</span>
+                <span class="edu-status status-done">Completed</span>
+              </div>
+              <h3>High School (10th)</h3>
+              <p class="timeline-institution">State Board, Lucknow</p>
+              <p class="timeline-description">Completed secondary education with a focus on science and mathematics. Score: 82.17%.</p>
+              <div class="edu-tags">
+                <span class="badge">Science</span>
+                <span class="badge">Maths</span>
+              </div>
+            </div>
+            <div class="timeline-alt-marker"><i class="fas fa-book"></i></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="contact fade-in-section">
+      <div class="container">
+        <h2 class="section-title">Get in Touch</h2>
+        <p class="section-subtitle">Have a role, a project, or just want to talk ML? My inbox is open.</p>
+        <div class="contact-grid stagger-children">
+          
+          <!-- Contact Info -->
+          <div class="contact-info">
+            <span class="availability-badge"><span class="pulse-dot"></span> Available for ML Internships</span>
+            <h3>Let's collaborate</h3>
+            <p class="contact-desc">
+              I am open to machine learning internships, freelance collaborations, and project discussions. Drop a message or connect via my socials.
+            </p>
+
+            <div class="contact-detail-cards">
+              <div class="contact-detail-card">
+                <div class="contact-detail-icon"><i class="fas fa-location-dot"></i></div>
+                <div>
+                  <span class="contact-detail-label">Location</span>
+                  <span class="contact-detail-value">Noida, India</span>
+                </div>
+              </div>
+              <div class="contact-detail-card">
+                <div class="contact-detail-icon"><i class="fas fa-bolt"></i></div>
+                <div>
+                  <span class="contact-detail-label">Response Time</span>
+                  <span class="contact-detail-value">Within 24 hours</span>
+                </div>
+              </div>
+              <div class="contact-detail-card">
+                <div class="contact-detail-icon"><i class="fas fa-briefcase"></i></div>
+                <div>
+                  <span class="contact-detail-label">Open To</span>
+                  <span class="contact-detail-value">Internships &amp; Freelance</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="social-links">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub Profile">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn Profile">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="mailto:email@example.com" class="social-icon" aria-label="Email Address">
+                <i class="far fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+
+           <!-- Contact Form UI -->
+          <div class="contact-form-container glow-border-card">
+            <form id="contact-form" class="contact-form">
+              <div class="form-group">
+                <label for="name"><i class="fas fa-user"></i> Name</label>
+                <input type="text" id="name" name="name" required placeholder="Your Name">
+              </div>
+              <div class="form-group">
+                <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+              </div>
+              <div class="form-group">
+                <label for="subject"><i class="fas fa-tag"></i> Subject</label>
+                <input type="text" id="subject" name="subject" required placeholder="What is this regarding?">
+              </div>
+              <div class="form-group">
+                <label for="message"><i class="fas fa-message"></i> Message</label>
+                <textarea id="message" name="message" rows="5" required placeholder="Your message here..."></textarea>
+              </div>
+              <button type="submit" id="submit-btn" class="btn btn-primary">
+                Send Message <i class="fas fa-paper-plane"></i>
+              </button>
+              <p id="form-status" class="form-status"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container footer-container">
+      <p>&copy; 2026 Khushi. All rights reserved.</p>
+      <p>Built with HTML, CSS & JS</p>
+    </div>
+  </footer>
+  <div class="custom-cursor-ring" id="cursorRing"></div>
+  <div class="custom-cursor-dot" id="cursorDot"></div>
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

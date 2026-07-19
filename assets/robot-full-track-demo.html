@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Robot Avatar — Full Directional Tracking + Face Flip</title>
+<style>
+  body{
+    margin:0; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    background:radial-gradient(circle at 50% 30%, #1b1233 0%, #09090b 65%);
+    overflow:hidden; font-family:sans-serif; color:#a1a1aa;
+  }
+  .stage{
+    position:relative;
+    perspective:1000px;
+    width:340px; height:460px;
+  }
+  .robot-shadow{
+    position:absolute;
+    left:50%; bottom:6%;
+    width:190px; height:32px;
+    transform:translateX(-50%);
+    background:radial-gradient(ellipse, rgba(139,92,246,0.5) 0%, rgba(139,92,246,0) 72%);
+    filter:blur(2px);
+    transition:transform 0.25s ease-out;
+  }
+  .robot-wrap{
+    position:relative;
+    width:100%; height:100%;
+    transform-style:preserve-3d;
+    transition:transform 0.18s ease-out;
+    will-change:transform;
+    animation:idleFloat 4.5s ease-in-out infinite;
+  }
+  @keyframes idleFloat{
+    0%,100%{ margin-top:0px; }
+    50%{ margin-top:-10px; }
+  }
+  .robot-wrap img{
+    width:100%; height:100%; object-fit:contain; display:block;
+    filter:drop-shadow(0 25px 25px rgba(0,0,0,0.55));
+  }
+  .eye-highlight{
+    position:absolute;
+    width:7px; height:7px;
+    border-radius:50%;
+    background:radial-gradient(circle, #ffffff 0%, #e9d5ff 45%, rgba(233,213,255,0) 75%);
+    box-shadow:0 0 7px 2px rgba(233,213,255,0.9);
+    transform:translate(-50%, -50%);
+    pointer-events:none;
+    transition:transform 0.1s linear;
+  }
+  .eye-left{  left:54.2%; top:27.1%; }
+  .eye-right{ left:68.1%; top:27.6%; }
+  .hint{
+    margin-top:18px; font-size:13px; letter-spacing:0.03em; opacity:0.7;
+    text-align:center;
+  }
+</style>
+</head>
+<body>
+
+  <div class="stage" id="stage">
+    <div class="robot-shadow" id="shadow"></div>
+    <div class="robot-wrap" id="robotWrap">
+      <img src="robot.png" alt="Robot avatar">
+      <div class="eye-highlight eye-left"  id="eyeLeft"></div>
+      <div class="eye-highlight eye-right" id="eyeRight"></div>
+    </div>
+  </div>
+  <div class="hint">move your cursor anywhere on the page &middot; the robot turns to face it</div>
+
+<script>
+  const robotWrap = document.getElementById('robotWrap');
+  const shadow = document.getElementById('shadow');
+  const eyeLeft = document.getElementById('eyeLeft');
+  const eyeRight = document.getElementById('eyeRight');
+
+  const MAX_TILT_X = 16;     // up/down nod
+  const MAX_TILT_Y = 55;     // left/right turn (large, so it visibly turns to face the cursor)
+  const MAX_EYE_SHIFT = 2.6;
+
+  function handleMove(clientX, clientY){
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    const nx = (clientX / vw - 0.5) * 2; // -1 (far left) .. 1 (far right)
+    const ny = (clientY / vh - 0.5) * 2; // -1 (top) .. 1 (bottom)
+
+    const rotateY = nx * MAX_TILT_Y;   // turns face toward left/right cursor position
+    const rotateX = -ny * MAX_TILT_X;  // tilts up/down toward cursor position
+
+    robotWrap.style.animation = 'none';
+    robotWrap.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+    const facing = Math.max(0.55, 1 - Math.abs(nx) * 0.45);
+    shadow.style.transform = `translateX(calc(-50% + ${nx * 20}px)) scaleX(${facing})`;
+
+    const eyeShiftX = nx * MAX_EYE_SHIFT;
+    const eyeShiftY = ny * MAX_EYE_SHIFT;
+    eyeLeft.style.transform  = `translate(calc(-50% + ${eyeShiftX}px), calc(-50% + ${eyeShiftY}px))`;
+    eyeRight.style.transform = `translate(calc(-50% + ${eyeShiftX}px), calc(-50% + ${eyeShiftY}px))`;
+  }
+
+  window.addEventListener('mousemove', (e) => handleMove(e.clientX, e.clientY));
+  window.addEventListener('touchmove', (e) => {
+    if (e.touches[0]) handleMove(e.touches[0].clientX, e.touches[0].clientY);
+  }, { passive:true });
+</script>
+
+</body>
+</html>

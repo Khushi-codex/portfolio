@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Robot Avatar — 3D Tilt Demo</title>
+<style>
+  body{
+    margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+    background:radial-gradient(circle at 50% 30%, #1b1233 0%, #09090b 65%);
+    overflow:hidden;
+  }
+  .stage{
+    position:relative;
+    perspective:900px;
+    width:340px; height:460px;
+  }
+  .robot-shadow{
+    position:absolute;
+    left:50%; bottom:6%;
+    width:200px; height:34px;
+    transform:translateX(-50%);
+    background:radial-gradient(ellipse, rgba(139,92,246,0.55) 0%, rgba(139,92,246,0) 72%);
+    filter:blur(2px);
+    transition:transform 0.15s ease-out, opacity 0.15s ease-out;
+  }
+  .robot-wrap{
+    position:relative;
+    width:100%; height:100%;
+    transform-style:preserve-3d;
+    transition:transform 0.12s ease-out;
+    will-change:transform;
+    animation:float 4.5s ease-in-out infinite;
+  }
+  @keyframes float{
+    0%,100%{ transform:translateY(0px); }
+    50%{ transform:translateY(-10px); }
+  }
+  .robot-wrap img{
+    width:100%; height:100%; object-fit:contain; display:block;
+    filter:drop-shadow(0 25px 25px rgba(0,0,0,0.55));
+  }
+  .eye-highlight{
+    position:absolute;
+    width:7px; height:7px;
+    border-radius:50%;
+    background:radial-gradient(circle, #ffffff 0%, #e9d5ff 45%, rgba(233,213,255,0) 75%);
+    box-shadow:0 0 7px 2px rgba(233,213,255,0.9);
+    transform:translate(-50%, -50%);
+    pointer-events:none;
+  }
+  /* measured from the source image: left eye ~54.2%/27.1%, right eye ~68.1%/27.6% */
+  .eye-left{  left:54.2%; top:27.1%; }
+  .eye-right{ left:68.1%; top:27.6%; }
+</style>
+</head>
+<body>
+
+  <div class="stage" id="stage">
+    <div class="robot-shadow" id="shadow"></div>
+    <div class="robot-wrap" id="robotWrap">
+      <img src="robot.png" alt="Robot avatar">
+      <div class="eye-highlight eye-left"  id="eyeLeft"></div>
+      <div class="eye-highlight eye-right" id="eyeRight"></div>
+    </div>
+  </div>
+
+<script>
+  const stage = document.getElementById('stage');
+  const robotWrap = document.getElementById('robotWrap');
+  const shadow = document.getElementById('shadow');
+  const eyeLeft = document.getElementById('eyeLeft');
+  const eyeRight = document.getElementById('eyeRight');
+
+  const MAX_TILT = 14;      // degrees of 3D rotation
+  const MAX_EYE_SHIFT = 2.6; // px the eye highlights may drift
+
+  function handleMove(clientX, clientY){
+    const rect = stage.getBoundingClientRect();
+    const px = (clientX - rect.left) / rect.width;   // 0..1
+    const py = (clientY - rect.top) / rect.height;    // 0..1
+    const nx = (px - 0.5) * 2; // -1..1
+    const ny = (py - 0.5) * 2; // -1..1
+
+    const rotateY = nx * MAX_TILT;
+    const rotateX = -ny * MAX_TILT;
+
+    robotWrap.style.transform =
+      `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    robotWrap.style.animation = 'none'; // pause idle float while actively tracking
+
+    shadow.style.transform =
+      `translateX(calc(-50% + ${nx * 16}px)) scaleX(${1 - Math.abs(nx) * 0.15})`;
+
+    const eyeShiftX = nx * MAX_EYE_SHIFT;
+    const eyeShiftY = ny * MAX_EYE_SHIFT;
+    eyeLeft.style.transform  = `translate(calc(-50% + ${eyeShiftX}px), calc(-50% + ${eyeShiftY}px))`;
+    eyeRight.style.transform = `translate(calc(-50% + ${eyeShiftX}px), calc(-50% + ${eyeShiftY}px))`;
+  }
+
+  function resetTilt(){
+    robotWrap.style.transform = 'rotateX(0deg) rotateY(0deg)';
+    robotWrap.style.animation = 'float 4.5s ease-in-out infinite';
+    shadow.style.transform = 'translateX(-50%) scaleX(1)';
+    eyeLeft.style.transform = 'translate(-50%, -50%)';
+    eyeRight.style.transform = 'translate(-50%, -50%)';
+  }
+
+  window.addEventListener('mousemove', (e) => handleMove(e.clientX, e.clientY));
+  stage.addEventListener('mouseleave', resetTilt);
+
+  window.addEventListener('touchmove', (e) => {
+    if (e.touches[0]) handleMove(e.touches[0].clientX, e.touches[0].clientY);
+  }, { passive:true });
+  window.addEventListener('touchend', resetTilt);
+</script>
+
+</body>
+</html>
